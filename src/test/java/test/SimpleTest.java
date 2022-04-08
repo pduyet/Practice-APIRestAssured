@@ -1,26 +1,39 @@
 package test;
 
+import collection.POSTMethod;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import utilities.Listener;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
+@Listeners(Listener.class)
 public class SimpleTest {
-    public static void main(String[] args) {
-        String baseUri = "https://jsonplaceholder.typicode.com";
 
-        // Request scope
-        RequestSpecification request = given();
-        request.baseUri(baseUri);
-        request.basePath("/todos");
+    @BeforeMethod
+    public void setUp() {
+        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
+        RestAssured.basePath = "/todos";
+    }
 
-        //Response scope
-        final String FIRST_TODO = "/1";
-        Response response = request.get(FIRST_TODO);
-        response.prettyPrint();
-        response.then().body("userId", equalTo(2));
+    @Test (description = "lay danh sach viec can lam theo id")
+    public void getListTodos() {
+        int i;
+        for (i = 1; i <= 10; i++) {
+            Response response = given()
+                    .when()
+                    .get("/" + i);
+            response.prettyPrint();
+            Assert.assertEquals(response.statusCode(), 200);
+        }
+    }
+
+    @Test
+    public void postPost() {
+        Assert.assertEquals(POSTMethod.postToDo().statusCode(), 200, "sai statusCode");
     }
 }
-
-
