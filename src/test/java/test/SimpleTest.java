@@ -34,6 +34,6 @@ public class SimpleTest {
 
     @Test
     public void postPost() {
-        Assert.assertEquals(POSTMethod.postToDo().statusCode(), 200, "sai statusCode");
+        Assert.assertEquals(POSTMethod.postToDo().statusCode(), 201, "sai statusCode");
     }
 }
