@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.Listener;
+import utilities.ReadJson;
 
 import static io.restassured.RestAssured.given;
 
@@ -23,17 +24,20 @@ public class SimpleTest {
     @Test (description = "lay danh sach viec can lam theo id")
     public void getListTodos() {
         int i;
-        for (i = 1; i <= 10; i++) {
+        for (i = 1; i <= 3; i++) {
             Response response = given()
                     .when()
                     .get("/" + i);
-            response.prettyPrint();
+            String title = ReadJson.jsonValue(response.prettyPrint(), "title");
+            System.out.println(title);
+            System.out.println("-----");
             Assert.assertEquals(response.statusCode(), 200);
+
         }
     }
 
-    @Test
-    public void postPost() {
-        Assert.assertEquals(POSTMethod.postToDo().statusCode(), 201, "sai statusCode");
-    }
+//    @Test
+//    public void postPost() {
+//        Assert.assertEquals(POSTMethod.postToDo().statusCode(), 201, "sai statusCode");
+//    }
 }

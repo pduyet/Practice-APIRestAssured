@@ -1,5 +1,6 @@
 package utilities;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -21,5 +22,10 @@ public class ReadJson {
         assert fileElement != null;
         JsonObject fileObject = fileElement.getAsJsonObject();
         return fileObject.get(node).getAsString();
+    }
+
+    public static String jsonValue(String fileName, String node) {
+        JsonObject jsonObject = new Gson().fromJson(fileName, JsonObject.class);
+        return jsonObject.get(node).getAsString();
     }
 }
