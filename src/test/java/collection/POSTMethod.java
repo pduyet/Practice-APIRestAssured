@@ -1,12 +1,10 @@
 package collection;
 
-import com.google.gson.Gson;
 import constant.Element;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.CreateJson;
-import model.JsonBody;
-import org.testng.Assert;
+import utilities.Utilities;
 
 import static io.restassured.RestAssured.given;
 
@@ -20,12 +18,34 @@ public class POSTMethod {
                 .when()
                 .body(payload)
                 .post();
+        System.out.println(response.statusCode());
         return response;
     }
 
-    public static int getId() {
-        return postToDo().jsonPath().getInt("id");
+    public static Response creatYourPet() {
+        String payload = CreateJson.jsonCreatePet();
+        Response res = given()
+                .baseUri(Element.BaseSwaggerURI)
+                .basePath(Element.BasePathPet)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(payload)
+                .post();
+        System.out.println(res.statusCode());
+        return res;
     }
 
+    public static Response createBooking() {
+        String payload = CreateJson.jsonCreateBooking(Utilities.getDateFormat(-2), Utilities.getDateFormat(2));
+        Response res = given()
+                .baseUri(Element.BaseBookingURI)
+                .basePath(Element.Booking)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(payload)
+                .post();
+        System.out.println(res.statusCode());
+        return res;
+    }
 
 }

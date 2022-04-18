@@ -1,0 +1,13 @@
+test\HerokuBookingTests.class
+test\PetSwaggerTests.class
+utilities\AllureManager.class
+collection\GETMethod.class
+constant\Element.class
+utilities\ReadJson.class
+collection\DELETEMethod.class
+utilities\Listener.class
+test\JsonPlaceHolderTests.class
+test\test.class
+utilities\Utilities.class
+collection\POSTMethod.class
+collection\PUTMethod.class

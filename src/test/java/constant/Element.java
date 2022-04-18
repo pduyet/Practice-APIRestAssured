@@ -14,4 +14,16 @@ public class Element {
     // Booking HerokuApp
     public static final String BaseBookingURI = "https://restful-booker.herokuapp.com";
     public static final String Booking = "/booking";
+
+    // Pet Swagger
+    // Post a pet
+    public static final String BaseSwaggerURI = "https://petstore.swagger.io/v2";
+    public static final String BasePathPet = "/pet";
+
+    // Find a pet by id
+    public static final String BasePathGetPet = "/pet/pet_id";
+
+    // Delete a pet by id
+    public static final String BasePathDeletePet = "/pet/pet_id";
+
 }

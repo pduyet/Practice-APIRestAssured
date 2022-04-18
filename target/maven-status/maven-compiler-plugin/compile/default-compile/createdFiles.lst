@@ -1,0 +1,5 @@
+model\CreateJson.class
+model\JsonBodyPet.class
+model\JsonBodyPet$Category.class
+model\JsonBody.class
+model\JsonBodyPet$Tags.class
