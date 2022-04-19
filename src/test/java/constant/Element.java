@@ -14,6 +14,7 @@ public class Element {
     // Booking HerokuApp
     public static final String BaseBookingURI = "https://restful-booker.herokuapp.com";
     public static final String Booking = "/booking";
+    public static final String bookingID = "/booking/bookingID";
 
     // Pet Swagger
     // Post a pet

@@ -18,7 +18,7 @@ public class PetSwaggerTests {
 
     @Test(priority = 1)
     public void postPet() {
-        System.out.println("Create ");
+        System.out.println("Create Pet");
         String res = POSTMethod.creatYourPet().asPrettyString();
         String idPet = JsonUtilities.jsonValue(res, "id");
         listIDPet.add(idPet);
@@ -27,18 +27,16 @@ public class PetSwaggerTests {
     @Test(priority = 2)
     @Severity(SeverityLevel.TRIVIAL)
     public void getIDPet() {
+        System.out.println("Get Pet");
         int id = Utilities.randomNumber(listIDPet.size());
-        GETMethod.getPetID(listIDPet.get(id));
+        GETMethod.getPetID(listIDPet.get(id)).prettyPrint();
 //        JsonObject jsonObject = new Gson().fromJson(GETMethod.getPetID(listIDPet.get(id)).prettyPrint(), JsonObject.class);
     }
 
     @Test(priority = 3)
     public void updateNamePet() {
+        System.out.println("Update Pet's information");
         Response res = PUTMethod.updateInformationPet();
         res.prettyPrint();
-        String payload = res.asPrettyString();
-        System.out.println("-------");
-        String idPet = JsonUtilities.jsonValue(payload, "id");
-        GETMethod.getPetID(idPet).prettyPrint();
     }
 }

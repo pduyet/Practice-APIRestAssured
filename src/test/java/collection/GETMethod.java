@@ -29,4 +29,13 @@ public class GETMethod {
 //        }
         return res;
     }
+
+    public static Response getBookingID(String id) {
+        Response res = given()
+                .baseUri(Element.BaseBookingURI)
+                .basePath(Element.bookingID.replace("bookingID", id))
+                .when()
+                .get();
+        return res;
+    }
 }
