@@ -56,4 +56,8 @@ public class JsonUtilities {
         }
         return null;
     }
+
+    public static String convertJsonToString(Object body) {
+        return new Gson().toJson(body);
+    }
 }

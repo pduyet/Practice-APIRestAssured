@@ -3,7 +3,7 @@ package constant;
 public class Element {
 
     // JsonPlaceHolder
-    public static final String BaseURI = "https://jsonplaceholder.typicode.com";
+    public static final String BaseURIJsonPlaceHolder = "https://jsonplaceholder.typicode.com";
     public static final String Post = "/posts";
     public static final String Comments = "/comments";
     public static final String Albums = "/albums";
@@ -14,7 +14,7 @@ public class Element {
     // Booking HerokuApp
     public static final String BaseBookingURI = "https://restful-booker.herokuapp.com";
     public static final String Booking = "/booking";
-    public static final String bookingID = "/booking/bookingID";
+    public static final String BookingID = "/booking/bookingID";
 
     // Pet Swagger
     // Post a pet

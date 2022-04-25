@@ -1,34 +1,24 @@
 package collection;
 
+import com.google.gson.Gson;
 import constant.Element;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.CreateJson;
 import model.JsonBodyBooking;
+import utilities.Utilities;
 
-import static io.restassured.RestAssured.given;
+import static steps.Supports.sendPut;
+import static utilities.JsonUtilities.convertJsonToString;
 
 public class PUTMethod {
     public static Response updateInformationPet() {
-        Response res = given()
-                .baseUri(Element.BaseSwaggerURI)
-                .basePath(Element.BasePathPet)
-                .contentType(ContentType.JSON)
-                .body(CreateJson.jsonUpdatePet())
-                .when()
-                .put();
-        return res;
+        String payload = CreateJson.jsonUpdatePet();
+        return sendPut(Element.BasePathPet, payload);
     }
 
     public static Response updateInformationBooking(String id) {
         JsonBodyBooking.BookingDates bookingDates = new JsonBodyBooking.BookingDates("2020-01-01", "2020-02-01");
         JsonBodyBooking json = new JsonBodyBooking("Duyet1", "Pham1", 200, true, bookingDates, "Dinner");
-        Response res = given()
-                .baseUri(Element.BaseBookingURI)
-                .contentType(ContentType.JSON)
-                .body(json)
-                .when()
-                .put(Element.bookingID.replace("bookingID", id));
-        return res;
+        return sendPut(Element.BookingID.replace("bookingID", id), json);
     }
 }

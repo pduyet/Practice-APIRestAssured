@@ -1,0 +1,1 @@
+{"uuid":"8b86676b-06b0-4bfe-9ab6-6b514d4ac7f7","name":"test.PetSwaggerTests.setUp","children":["1850051c-9565-4548-914f-ed3ebd04fa7a"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1650612914537,"stop":1650612914538}],"afters":[],"start":1650612914537,"stop":1650612914538}

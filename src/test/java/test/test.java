@@ -1,19 +1,18 @@
 package test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class test {
-    public static void main(String[] args) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date dt = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dt);
-        calendar.add(Calendar.DATE, 1);
-        Date afterDate = calendar.getTime();
-        String time = df.format(afterDate);
 
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
+        map.put("d", 4);
+        for (Object ele : map.entrySet()) {
+            System.out.println(ele);
+        }
     }
 }

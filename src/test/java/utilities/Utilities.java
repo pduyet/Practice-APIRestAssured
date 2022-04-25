@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Utilities {
     public static String getTimeNow() {
-        DateTimeFormatter dtfm = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter dtfm = DateTimeFormatter.ofPattern("yyyyMMdd'T'hhmmss");
         LocalDateTime now = LocalDateTime.now();
         return dtfm.format(now);
     }
@@ -29,4 +29,6 @@ public class Utilities {
         Date afterDate = calendar.getTime();
         return df.format(afterDate);
     }
+
+
 }
