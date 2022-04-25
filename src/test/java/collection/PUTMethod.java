@@ -1,14 +1,11 @@
 package collection;
 
-import com.google.gson.Gson;
 import constant.Element;
 import io.restassured.response.Response;
 import model.CreateJson;
 import model.JsonBodyBooking;
-import utilities.Utilities;
 
 import static steps.Supports.sendPut;
-import static utilities.JsonUtilities.convertJsonToString;
 
 public class PUTMethod {
     public static Response updateInformationPet() {

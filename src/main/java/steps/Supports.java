@@ -14,7 +14,7 @@ public class Supports {
     }
 
     public static Response sendPut(String basePath, Object body) {
-        return given().basePath(basePath).header("Content-Type", "application/json").header("Accept", "application/json").when().body(body).put();
+        return given().basePath(basePath).header("Content-Type", "application/json").header("Accept", "application/json").body(body).put();
     }
 
     public static Response sendDelete(String basePath) {
